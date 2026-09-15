@@ -6,6 +6,8 @@ A Google Colab research prototype that compares three cancelable biometric trans
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/prince9939367489/Diffusion-Model-Based-Cancelable-Biometric-Templates/blob/main/Project.ipynb)
 
+**Live results showcase:** [Explore the recorded benchmark output](https://prince-biometric-research.princekumar120207.chatgpt.site)
+
 ## Overview
 
 The notebook performs a four-class image-classification experiment:
@@ -28,7 +30,7 @@ class folders
 
 ## Notebook and Recorded Output
 
-- [View the rendered notebook and its saved output](./Project.ipynb)
+- [View the rendered notebook and its saved output](https://github.com/prince9939367489/Diffusion-Model-Based-Cancelable-Biometric-Templates/blob/main/Project.ipynb)
 - [Open and rerun the notebook in Google Colab](https://colab.research.google.com/github/prince9939367489/Diffusion-Model-Based-Cancelable-Biometric-Templates/blob/main/Project.ipynb)
 
 The committed notebook retains output from an earlier 80/20 stratified run on **14,161 images across four folder-defined classes**. The dataset is not included, so these values have not been independently reproduced. They should be treated as recorded experimental output rather than a general performance claim.

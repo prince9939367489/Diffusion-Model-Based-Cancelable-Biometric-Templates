@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recorded results and methodology for a cancelable biometric template classification benchmark.">
+  <meta name="theme-color" content="#07151f">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2307151f'/%3E%3Cpath d='M11 32c7-12 14-17 21-17s14 5 21 17c-7 12-14 17-21 17S18 44 11 32Z' fill='none' stroke='%235ce1c6' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23f7c65e'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <title>Cancelable Biometric Benchmark — Recorded Results</title>
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Cancelable Biometric Benchmark home"><span class="brand-mark" aria-hidden="true">CB</span><span>Template Benchmark</span></a>
+    <nav aria-label="Project links">
+      <a href="https://github.com/prince9939367489/Diffusion-Model-Based-Cancelable-Biometric-Templates/blob/main/Project.ipynb" target="_blank" rel="noreferrer">View notebook</a>
+      <a class="nav-cta" href="https://colab.research.google.com/github/prince9939367489/Diffusion-Model-Based-Cancelable-Biometric-Templates/blob/main/Project.ipynb" target="_blank" rel="noreferrer">Open in Colab</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Recorded classification experiment</p>
+        <h1>Cancelable templates, compared clearly.</h1>
+        <p class="lede">A visual summary of saved notebook output across three feature transformations and four classical classifiers.</p>
+        <div class="notice" role="note"><strong>Interpret with care.</strong> The dataset is not included, so these historical results have not been independently reproduced.</div>
+      </div>
+      <div class="hero-result" aria-label="Highest recorded result">
+        <span class="result-label">Highest saved accuracy</span>
+        <strong>95.27<span>%</span></strong>
+        <p>BioHashing + RBF SVM</p>
+        <dl><div><dt>Weighted F1</dt><dd>95.26%</dd></div><div><dt>Saved images</dt><dd>14,161</dd></div><div><dt>Classes</dt><dd>4</dd></div></dl>
+      </div>
+    </section>
+
+    <section class="results section" id="results" aria-labelledby="results-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Comparison explorer</p><h2 id="results-title">Recorded test accuracy</h2></div>
+        <p>Select a transformation to compare its four tuned classifiers. Values are read directly from the committed notebook output.</p>
+      </div>
+      <div class="result-panel">
+        <div class="tabs" role="tablist" aria-label="Cancelable template transformation">
+          <button type="button" role="tab" aria-selected="true" data-method="biohash">BioHashing</button>
+          <button type="button" role="tab" aria-selected="false" data-method="projection">Random projection</button>
+          <button type="button" role="tab" aria-selected="false" data-method="iom">IoM hashing</button>
+        </div>
+        <div class="chart" aria-live="polite">
+          <div class="chart-title"><h3 id="method-title">BioHashing</h3><p id="method-summary">Best saved result: SVM at 95.27%</p></div>
+          <div id="bars" class="bars"></div>
+        </div>
+      </div>
+      <noscript><p class="noscript">JavaScript is disabled. The complete comparison is available in the table below.</p></noscript>
+      <div class="table-wrap"><table><caption>All recorded test-accuracy values</caption><thead><tr><th scope="col">Transformation</th><th scope="col">Random Forest</th><th scope="col">SVM</th><th scope="col">KNN</th><th scope="col">XGBoost</th></tr></thead><tbody><tr><th scope="row">IoM hashing</th><td>75.11%</td><td>63.93%</td><td>61.63%</td><td>70.21%</td></tr><tr><th scope="row">BioHashing</th><td>94.60%</td><td><strong>95.27%</strong></td><td>93.47%</td><td>93.15%</td></tr><tr><th scope="row">Random projection</th><td>94.32%</td><td>94.92%</td><td>93.93%</td><td>93.58%</td></tr></tbody></table></div>
+    </section>
+
+    <section class="pipeline section" aria-labelledby="pipeline-title">
+      <div class="section-heading section-heading--compact"><div><p class="eyebrow">Experiment path</p><h2 id="pipeline-title">From images to scores</h2></div></div>
+      <ol>
+        <li><span>01</span><strong>Eye-image folders</strong><p>Four folder-defined classes; source and licensing are undocumented.</p></li>
+        <li><span>02</span><strong>Feature pipeline</strong><p>EfficientNetB0, global pooling, and an untrained 512-unit projection layer.</p></li>
+        <li><span>03</span><strong>Template transform</strong><p>IoM hashing, BioHashing, or 128-dimensional random projection.</p></li>
+        <li><span>04</span><strong>Classification</strong><p>Random Forest, RBF SVM, KNN, and XGBoost with three-fold tuning.</p></li>
+      </ol>
+    </section>
+
+    <section class="limits section" aria-labelledby="limits-title">
+      <div><p class="eyebrow">Responsible interpretation</p><h2 id="limits-title">What this output does—and does not—show</h2></div>
+      <div class="limit-grid">
+        <article><span>Classification</span><h3>Not biometric verification</h3><p>The notebook does not report FAR, FRR, EER, ROC, unlinkability, irreversibility, or revocability.</p></article>
+        <article><span>Method</span><h3>No diffusion model</h3><p>Despite the repository name, the current implementation uses EfficientNet features and classical classifiers.</p></article>
+        <article><span>Reproducibility</span><h3>Dataset required</h3><p>Colab can open the code, but rerunning it requires the original dataset and significant compute.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>Research portfolio of <a href="https://github.com/prince9939367489">Prince kumar</a>.</p><p><a href="https://github.com/prince9939367489/Diffusion-Model-Based-Cancelable-Biometric-Templates">Source repository</a> · <a href="https://colab.research.google.com/github/prince9939367489/Diffusion-Model-Based-Cancelable-Biometric-Templates/blob/main/Project.ipynb">Colab notebook</a></p></footer>
+  <script src="app.js"></script>
+</body>
+</html>
