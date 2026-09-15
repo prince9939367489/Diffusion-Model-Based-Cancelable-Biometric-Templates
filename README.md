@@ -101,7 +101,7 @@ These controls reduce accidental variation; they do not make the saved results i
 - **The 512-unit Dense layer is not trained.** It is a seeded, randomly initialized nonlinear feature projection after the pretrained backbone; the Dropout layer is inactive during `predict`. This design is retained to stay close to the saved experiment.
 - **OpenCV loads BGR images.** The current experiment does not explicitly convert them to RGB before the EfficientNet pipeline; correcting this would require rerunning and replacing the recorded results.
 - **The test set is reused across many model/transform comparisons.** Reporting the best combination can introduce model-selection bias without a separate final holdout set.
-- **There is no packaged model or inference application.** The rendered notebook is the current demo; no live biometric system is claimed.
+- **There is no packaged model or inference application.** The notebook and static results showcase are the current demos; no live biometric inference system is claimed.
 - **Package versions are not locked.** Future library changes can affect behavior and results.
 
 ## Next Steps
